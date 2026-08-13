@@ -10,6 +10,8 @@ import FlashDeals from "./pages/FlashDeals";
 import Checkout from "./pages/Checkout";
 import MyOrders from "./pages/MyOrders";
 import OrderTracking from "./pages/OrderTracking";
+import Addresses from "./pages/Addresses";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -38,10 +40,11 @@ const App = () => {
           <Route path="products/:id" element={<ProductPage />} />
           <Route path="search" element={<SearchResults />} />
           <Route path="deals" element={<FlashDeals />} />
-          <Route>
+          <Route element={<ProtectedRoute />}>
             <Route path="checkout" element={<Checkout />} />
             <Route path="orders" element={<MyOrders />} />
             <Route path="orders/:id" element={<OrderTracking />} />
+            <Route path="addresses" element={<Addresses />} />
           </Route>
         </Route>
       </Routes>
