@@ -28,6 +28,20 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  const handleSearch = (e: React.SubmitEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+    }
+  };
+
+  const handleLogout = () => {
+    setUserMenuOpen(false);
+    navigate("/");
+  };
+
   return (
     <nav className="bg-white sticky top-0 z-50 border-b border-app-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 gap-4">
@@ -50,6 +64,7 @@ const Navbar = () => {
 
           {/* Search */}
           <form
+            onSubmit={handleSearch}
             className="hidden sm:flex flex-1 max-w-sm text-xs
 sm:text-sm"
           >
@@ -197,6 +212,7 @@ md:hidden"
                         pt-1"
                         >
                           <button
+                            onClick={handleLogout}
                             className="flex items-center
                           gap-3 px-4 py-2.5 text-sm
                           text-app-error hover:bg-red-50 w-full
