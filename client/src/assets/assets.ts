@@ -66,7 +66,7 @@ export const appPromoBannerData = {
 
 export const footerData = {
   brand: {
-    name: "Instacart",
+    name: "አስቤዛ አድራሽ",
     description:
       "Bringing fresh, organic groceries straight from local farms to your doorstep. Nourish your home with Earth's finest.",
     socials: [
@@ -98,13 +98,13 @@ export const footerData = {
   ],
 
   contact: [
-    { icon: MapPinIcon, text: "123 Green Valley Rd, Portland" },
+    { icon: MapPinIcon, text: "123 kolfe Keraniyo, Ethiopia" },
     { icon: PhoneIcon, text: "+1 (111) 123-4567" },
     { icon: MailIcon, text: "hello@example.com" },
   ],
 
   bottom: {
-    copyright: "© 2026 Greatstack. All rights reserved.",
+    copyright: "© 2026 . All rights reserved.",
     links: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
