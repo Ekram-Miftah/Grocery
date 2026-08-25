@@ -2,7 +2,7 @@ import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";
-import { Home } from "lucide-react";
+
 import Products from "./pages/Products";
 import ProductPage from "./pages/ProductPage";
 import SearchResults from "./pages/SearchResults";
@@ -12,6 +12,7 @@ import MyOrders from "./pages/MyOrders";
 import OrderTracking from "./pages/OrderTracking";
 import Addresses from "./pages/Addresses";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./pages/Home";
 
 const App = () => {
   return (

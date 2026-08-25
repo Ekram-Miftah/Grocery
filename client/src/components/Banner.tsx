@@ -20,13 +20,13 @@ const Banner = () => {
               <TruckIcon className="size-4 shrink-0" />
               <span className="font-medium">
                 {" "}
-                Free delivery on orders above 3000 birr{" "}
+                ከ3000 ብር በላይ ለሚደረግ ግዢ ነፃ የቤት ማድረሻ{" "}
               </span>
             </div>
             <span className="hidden sm:inline text-white/40">|</span>
             <div className="hidden sm:flex items-center gap-2">
               <ZapIcon className="size-3.5 fill-yellow-400 text-yellow-400 shrink-0" />
-              <span>Farm-fresh produce delivered daily</span>
+              <span>ትኩስ የእርሻ ውጤቶች በየቀኑ ወደ ቤትዎ</span>
             </div>
           </div>
           <button

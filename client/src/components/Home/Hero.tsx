@@ -1,6 +1,7 @@
 import React from "react";
 import { heroSectionData } from "../../assets/assets";
-import { ArrowRightIcon, LeafIcon, Link } from "lucide-react";
+import { ArrowRightIcon, LeafIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -35,8 +36,7 @@ lg:px-8 py-20 w-full"
             className="font-serif text-4xl sm:text-5xl
 lg:text-6xl text-white leading-tight mb-5"
           >
-            Nourish your home with{" "}
-            <span className="text-orange-300">Earth's finest</span>
+            ከተፈጥሮ ምርጡ <span className="text-orange-300">ለቤትዎ</span>
           </h1>
 
           <p
@@ -46,7 +46,7 @@ mb-8 max-w-md"
             {heroSectionData.description}
           </p>
 
-          <div>
+          <div className="flex flex-wrap gap-3">
             <Link
               to="/products"
               className="px-7 py-3
