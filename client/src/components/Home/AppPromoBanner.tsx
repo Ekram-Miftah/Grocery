@@ -1,4 +1,4 @@
-import { appPromoBannerData } from "../../assets/assets";
+import { appPromoBannerData, assets } from "../../assets/assets";
 
 const AppPromoBanner = () => {
   return (
@@ -6,11 +6,11 @@ const AppPromoBanner = () => {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20
       my-14 bg-green-950 rounded-2xl"
     >
-      {/* Left side content */}
       <div
         className="flex flex-col md:flex-row items-center justify-between
 gap-8 xl:px-10"
       >
+        {/* Left side content */}
         <div className="text-center md:text-left">
           <h2 className="font-serif text-3xl sm:text-4xl text-white mb-3">
             {appPromoBannerData.title}
@@ -37,8 +37,14 @@ md:justify-start"
             </button>
           </div>
         </div>
+        {/* Right side image */}
+        <img
+          src={assets.delivery_truck}
+          alt="Delivery Truck"
+          className="max-w-60
+sm:max-w-120 xl:pr-10"
+        />
       </div>
-      {/* Right side image */}
     </section>
   );
 };
