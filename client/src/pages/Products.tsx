@@ -5,6 +5,7 @@ import { ChevronDown, Home, SlidersHorizontal } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import type { Product } from "../types";
 import Loading from "../components/Loading";
+import FilterPanal from "../components/FilterPanal";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -69,7 +70,7 @@ const Products = () => {
           {/* Sidebar - Desktop */}
           <aside className="hidden lg:block w-64 shrink-0">
             <div className="bg-white rounded-2xl p-4 sticky top-24">
-              <p>Filter</p>
+              <FilterPanal categories={categoriesData} />
             </div>
           </aside>
 
