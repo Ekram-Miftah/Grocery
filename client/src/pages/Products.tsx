@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { categoriesData, dummyProducts } from "../assets/assets";
 import { Link, useSearchParams } from "react-router-dom";
-import { ChevronDown, Home, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, Home, SlidersHorizontal, XIcon } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import type { Product } from "../types";
 import Loading from "../components/Loading";
 import FilterPanal from "../components/FilterPanal";
+import FilterPanel from "../components/FilterPanal";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,7 +25,12 @@ const Products = () => {
   const fetchProducts = async () => {
     setLoading(true);
     setProducts(
-      dummyProducts.filter((p) => p.category === category || category === "")
+      dummyProducts.filter((p) => {
+        const matchesCategory = p.category === category || category === "";
+        const matchesMin = minPrice ? p.price >= Number(minPrice) : true;
+        const matchesMax = maxPrice ? p.price <= Number(maxPrice) : true;
+        return matchesCategory && matchesMin && matchesMax;
+      })
     );
     setLoading(false);
   };
@@ -189,6 +195,46 @@ xl:gap-8"
           </main>
         </div>
       </div>
+      {/* Mobile Filters Modal */}
+      {mobileFiltersOpen && (
+        <>
+          <div
+            className="fixed inset-0 bg-black/40 z-50"
+            onClick={() => setMobileFiltersOpen(false)}
+          />
+
+          <div
+            className="fixed bottom-0 left-0 right-0 bg-white z-50 rounded-t-2xl
+max-h-[80vh] overflow-y-auto animate-slide-in-up"
+          >
+            <div
+              className="flex items-center justify-between p-4 border-b
+border-app-border"
+            >
+              <h3 className="text-lg font-semibold text-app-green">Filters</h3>
+              <button
+                onClick={() => setMobileFiltersOpen(false)}
+                className="p-2 hover:bg-app-cream rounded-lg"
+              >
+                <XIcon className="size-5" />
+              </button>
+            </div>
+
+            <div className="p-4">
+              <FilterPanel
+                categories={categoriesData}
+                category={category}
+                organic={organic}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                updateFilter={updateFilter}
+                clearFilters={clearFilters}
+                hasFilters={hasFilters}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
