@@ -1000,8 +1000,8 @@ export const dummyAddressData = [
   {
     label: "Home",
     address: "123 Main St ",
-    city: "New York ",
-    state: "NY",
+    city: "Addis Ababa ",
+    state: "AA",
     zip: "10001",
     isDefault: true,
     lat: 40.7128,
@@ -1010,9 +1010,9 @@ export const dummyAddressData = [
   },
   {
     label: "Work",
-    address: "456 Market St ",
-    city: "New York ",
-    state: "NY",
+    address: "4 Killo ",
+    city: "Addis Ababa ",
+    state: "AA",
     zip: "10002",
     isDefault: false,
     lat: 40.7128,
