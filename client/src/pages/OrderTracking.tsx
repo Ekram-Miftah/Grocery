@@ -175,6 +175,14 @@ const OrderTracking = () => {
                     {currency}
                   </span>
                 </div>
+
+                <div className="flex justify-between pt-2 border-t border-app-border font-semibold text-app-green">
+                  <span>Total</span>
+                  <span>
+                    {order?.total.toFixed(2)}
+                    {currency}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
