@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import type { Address } from "../types";
 import { dummyAddressData } from "../assets/assets";
 import { useCart } from "../context/CartContext";
-import { CheckIcon, CreditCardIcon, MapPinIcon } from "lucide-react";
+import { ArrowLeft, CheckIcon, CreditCardIcon, MapPinIcon } from "lucide-react";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -70,9 +70,9 @@ const Checkout = () => {
           <h2 className="text-xl font-semibold text-app-green mb-2">
             Your cart is empty
           </h2>
-          <h2 className="text-xl font-semibold text-app-green mb-2">
-            Your cart is empty
-          </h2>
+          <p className="text-sm text-app-text-light mb-4">
+            Add some products to checkout
+          </p>
           <button
             onClick={() => navigate("/products")}
             className="px-5 py-2.5 bg-app-green text-white text-sm font-medium rounded-xl hover:bg-app-green-light transition-colors"
@@ -84,7 +84,21 @@ const Checkout = () => {
     );
   }
 
-  return <div>Checkout</div>;
+  return (
+    <div className="min-h-screen bg-app-cream">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 text-sm text-app-text-light hover:text-app-green mb-6 transition-colors"
+        >
+          <ArrowLeft className="size-4" /> Back
+        </button>
+
+        <h1>k</h1>
+      </div>
+    </div>
+  );
 };
 
 export default Checkout;
