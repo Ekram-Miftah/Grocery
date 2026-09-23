@@ -13,6 +13,15 @@ import OrderTracking from "./pages/OrderTracking";
 import Addresses from "./pages/Addresses";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminProducts from "./pages/admin/AdminProducts";
+import AdminProductForm from "./pages/admin/AdminProductForm";
+import AdminOrders from "./pages/admin/AdminOrders";
+import AdminDeliveryPartners from "./pages/admin/AdminDeliveryPartners";
+import DeliveryDashboard from "./pages/delivery/DeliveryDashboard";
+import DeliveryLayout from "./pages/delivery/DeliveryLayout";
+import DeliveryLogin from "./pages/delivery/DeliveryLogin";
 
 const App = () => {
   return (
@@ -33,7 +42,6 @@ const App = () => {
       <Routes>
         {/* Auth pages - No Navbar/Footer */}
         <Route path="/login" element={<Login />} />
-
         {/* Main pages - With Navbar/Footer */}
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
@@ -47,6 +55,21 @@ const App = () => {
             <Route path="orders/:id" element={<OrderTracking />} />
             <Route path="addresses" element={<Addresses />} />
           </Route>
+        </Route>
+        {/* Admin pages */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="products/new" element={<AdminProductForm />} />
+          <Route path="products/:id/edit" element={<AdminProductForm />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="delivery-partners" element={<AdminDeliveryPartners />} />
+        </Route>
+
+        {/* Delivery Partner pages */}
+        <Route path="/delivery/login" element={<DeliveryLogin />} />
+        <Route path="/delivery" element={<DeliveryLayout />}>
+          <Route index element={<DeliveryDashboard />} />
         </Route>
       </Routes>
     </>

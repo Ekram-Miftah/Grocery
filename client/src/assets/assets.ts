@@ -795,8 +795,8 @@ export const dummyDeliveryPartnerData = [
   },
   {
     _id: "69bbfc3866db7c6cdea47ede",
-    name: "Rahul",
-    email: "rahul@example.com",
+    name: "Abebe",
+    email: "Abebe@example.com",
     phone: "987654321",
     avatar: "",
     vehicleType: "bike",
@@ -811,9 +811,9 @@ export const dummyDashboardOrdersData = [
   {
     shippingAddress: {
       label: "Home",
-      address: "New Market Road ",
-      city: "New York ",
-      state: "NY",
+      address: "Addis Sefer ",
+      city: "Addis Ababa ",
+      state: "AA",
       zip: "876543",
       lat: 40.7128,
       lng: -74.006,
@@ -891,8 +891,8 @@ export const dummyDashboardOrdersData = [
     ],
     deliveryPartner: {
       _id: "69bbfc3866db7c6cdea47ede",
-      name: "Rahul",
-      email: "rahul@example.com",
+      name: "Abebe",
+      email: "Abebe@example.com",
       phone: "987654321",
     },
     deliveryOtp: "",
@@ -904,9 +904,9 @@ export const dummyDashboardOrdersData = [
   {
     shippingAddress: {
       label: "Home",
-      address: "New Market Road ",
-      city: "New York ",
-      state: "NY",
+      address: "Alem Bank",
+      city: "Addis Ababa ",
+      state: "AA",
       zip: "876543",
       lat: 40.7128,
       lng: -74.006,
