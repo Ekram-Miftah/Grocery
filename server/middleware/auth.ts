@@ -24,3 +24,6 @@ const token = authHeader.split(" ")[1];
 }
 
 };
+
+
+export default auth; 
