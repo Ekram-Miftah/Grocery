@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
+import { inngest } from "../inngest/index.js";
 
 // Create order
 // POST /api/orders
