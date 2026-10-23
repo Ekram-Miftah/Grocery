@@ -238,10 +238,21 @@ await prisma.order.update({
   }
 })
 
+return {
+  assigned: true,
+  riderId: availableRider.id,
+  riderName: availableRider.name,
+  orderId: orderId,
+}
+
 
 
   })
+
+
+
+return result
 })
 
+export const functions = [checkLowStock, sendMonthlyOffers, autoAssignRider];
 
-export const functions = [checkLowStock, sendMonthlyOffers];
