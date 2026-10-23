@@ -172,5 +172,16 @@ return {sent: sentCount}
 
 
 })
-// Create an empty array where we'll export future Inngest functions
-export const functions = [checkLowStock];
+// Auto-Assign Rider after 5 Minutes
+const autoAssignRider = inngest.createFunction(
+  {
+    id: 'auto-assign-rider',
+    name: "Auto Assign Delivery Rider",
+    triggers: [{event: "order/placed"}]
+  },
+  async () => {
+
+  }
+)
+
+export const functions = [checkLowStock, sendMonthlyOffers];
