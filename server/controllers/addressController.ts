@@ -1,4 +1,3 @@
-
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 
@@ -11,8 +10,6 @@ export const getAddresses = async (req: Request, res: Response) => {
     })
     res.json({addresses})
 }
-
-// Add address
 
 // Add address
 // POST /api/addresses

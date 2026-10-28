@@ -30,12 +30,6 @@ const getAdminStatus = (email: string | null | undefined): boolean => {
 export const register = async (req: Request, res: Response) => {
 
 
-
-
-
-
-
-
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
