@@ -1,4 +1,4 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from "bcryptjs";
 
@@ -24,6 +24,8 @@ false}]}}),
 
 
     ])
+
+    res.json({totalOrders, totalUsers, totalProducts, outOfStock, totalPartners, recentOrders})
 }
 
 
@@ -104,5 +106,5 @@ export const assignDeliveryPartner = async (req: Request, res: Response) => {
         where: {id: order!.id},
         data: {deliveryPartnerId: partner!.id, deliveryOtp: otp, status, statusHistory: history}
     })
-response.json(order)
+res.json({order})
 }
