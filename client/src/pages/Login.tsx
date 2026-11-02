@@ -8,6 +8,8 @@ import {
   MailIcon,
   UserIcon,
 } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [isLoginState, setIsLoginState] = useState(true);
@@ -15,12 +17,25 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+const {login, register} = useAuth()
 
-  const handleSubmit = async (e: React.SubmitEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => (window.location.href = "/"), 1000);
-  };
+const handleSubmit = async (e: React.SubmitEvent)=>{
+  e.preventDefault()
+  setLoading(true);
+try {
+    if(isLoginState){
+      await login(email, password)
+    }else{
+      await register(name, email, password)
+    }
+  } catch (error: any) {
+    toast.error(error.response?.data?.message || error?.message);
+  }finally{
+    setLoading(false)
+  }
+
+}
+
   return (
     <div className="min-h-screen flex">
       {/* Left Side */}
@@ -32,7 +47,7 @@ const Login = () => {
         />
         <div className="relative text-center px-12">
           <h2 className="text-4xl font-semibold text-white mb-4">
-            Welcome back to Instacart
+            Welcome back to አስቤዛ አድራሽ
           </h2>
           <p className="text-white/60 font-serif text-xl max-w-sm mx-auto">
             Fresh groceries and organic produce, delivered to your doorstep.
@@ -48,7 +63,7 @@ const Login = () => {
             <Link to="/" className="inline-flex items-center gap-2 mb-6">
               <BikeIcon className="size-8 text-app-green" />
               <span className="text-2xl font-semibold text-app-green">
-                Instacart
+              አስቤዛ አድራሽ
               </span>
             </Link>
             <h1 className="text-2xl font-semibold text-app-green mb-2">

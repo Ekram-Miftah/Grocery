@@ -32,16 +32,16 @@ const ProductPage = () => {
     setLoading(true);
     setLocalQuantity(1);
     window.scrollTo(0, 0);
-    const found = dummyProducts.find((p) => String(p._id) === String(id));
+    const found = dummyProducts.find((p) => String(p.id) === String(id));
     setProduct(found ?? null);
-    setRelatedProducts(dummyProducts.filter((p) => p._id !== id));
+    setRelatedProducts(dummyProducts.filter((p) => p.id !== id));
     setLoading(false);
   }, [id, navigate]);
 
   if (loading) return <Loading />;
   if (!product) return null;
 
-  const cartItem = items.find((item) => item.product._id === product._id);
+  const cartItem = items.find((item) => item.product.id === product.id);
   const inCart = !!cartItem;
   const displayQuantity = inCart ? cartItem.quantity : localQuantity;
   const categoryLabel = product.category.replace(/-/g, " ");
@@ -49,9 +49,9 @@ const ProductPage = () => {
   const handleDecrease = () => {
     if (inCart) {
       if (cartItem.quantity <= 1) {
-        removeFromCart(product._id);
+        removeFromCart(product.id);
       } else {
-        updateQuantity(product._id, cartItem.quantity - 1);
+        updateQuantity(product.id, cartItem.quantity - 1);
       }
     } else {
       setLocalQuantity((q) => Math.max(1, q - 1));
@@ -60,7 +60,7 @@ const ProductPage = () => {
 
   const handleIncrease = () => {
     if (inCart) {
-      updateQuantity(product._id, cartItem.quantity + 1);
+      updateQuantity(product.id, cartItem.quantity + 1);
     } else {
       setLocalQuantity((q) => q + 1);
     }
@@ -68,7 +68,7 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     if (inCart) {
-      updateQuantity(product._id, displayQuantity);
+      updateQuantity(product.id, displayQuantity);
     } else {
       addToCart(product, localQuantity);
     }
@@ -295,7 +295,7 @@ mb-6"
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 xl:gap-8">
               {relatedProducts.slice(0, 5).map((rp) => (
-                <ProductCard key={rp._id} product={rp} />
+                <ProductCard key={rp.id} product={rp} />
               ))}
             </div>
           </section>
