@@ -77,14 +77,6 @@ export const getProduct = async (req: Request, res: Response) => {
 
 
 
-
-
-
-
-
-
-
-
 // POST /api/products
 export const createProduct = async (req: Request, res: Response) => {
   const product = await prisma.product.create({ data: req.body });
