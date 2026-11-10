@@ -11,7 +11,7 @@ const PopularProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
 useEffect(()=>{
-  api.get('/products&sort=rating').then(({data})=>{
+  api.get('/products?sort=rating').then(({data})=>{
     setProducts(data.products)
   }).catch((error: any)=>{
     toast.error(error.response.data.message || error?.message);
