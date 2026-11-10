@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { categoriesData, dummyProducts } from "../assets/assets";
+import { categoriesData } from "../assets/assets";
 import { Link, useSearchParams } from "react-router-dom";
 import { ChevronDown, Home, SlidersHorizontal, XIcon } from "lucide-react";
 import ProductCard from "../components/ProductCard";
@@ -7,6 +7,8 @@ import type { Product } from "../types";
 import Loading from "../components/Loading";
 import FilterPanal from "../components/FilterPanal";
 import FilterPanel from "../components/FilterPanal";
+import toast from "react-hot-toast";
+import api from "../config/api";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,18 +24,28 @@ const Products = () => {
   const minPrice = searchParams.get("minPrice") || "";
   const maxPrice = searchParams.get("maxPrice") || "";
 
-  const fetchProducts = async () => {
-    setLoading(true);
-    setProducts(
-      dummyProducts.filter((p) => {
-        const matchesCategory = p.category === category || category === "";
-        const matchesMin = minPrice ? p.price >= Number(minPrice) : true;
-        const matchesMax = maxPrice ? p.price <= Number(maxPrice) : true;
-        return matchesCategory && matchesMin && matchesMax;
-      })
-    );
-    setLoading(false);
-  };
+const fetchProducts = async ()=>{
+  setLoading(true)
+  try {
+    const params = new URLSearchParams()
+    if(category) params.set('category', category)
+    if(organic) params.set('organic', organic)
+    if(sort) params.set('sort', sort)
+    if(sort) params.set('sort', sort)
+    if(maxPrice) params.set('maxPrice', maxPrice)
+    params.set("page", String(page))
+    params.set("limit", "12")
+
+    const { data } = await api.get(`/products?${params.toString()}`);
+    setProducts(data.products)
+    setTotalPages(data.pages)
+  } catch (error: any) {
+    toast.error(error?.response?.data?.message || error?.message);
+  }finally{
+    setLoading(false)
+  }
+}
+
 
   const updateFilter = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams);
