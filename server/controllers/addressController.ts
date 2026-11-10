@@ -55,7 +55,7 @@ const addresses = await prisma.address.findMany({
   where: {userId: req.user!.id},
   orderBy: {createdAt: "asc"}
 })
-res.status(201).json({addAddress})
+res.status(201).json({addresses})
 
 }
 
