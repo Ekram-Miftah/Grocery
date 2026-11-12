@@ -5,12 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-      "postinstall": "prisma generate",
+    "postinstall": "prisma generate",
     "start": "tsx server.ts",
     "server": "nodemon --exec tsx server.ts",
     "build": "tsc",
     "seed": "tsx seed.ts"
-
   },
   "keywords": [],
   "author": "",
@@ -36,7 +35,8 @@
     "inngest": "^4.25.0",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.4.0",
-    "nodemailer": "^10.1.7"
+    "nodemailer": "^10.1.7",
+    "stripe": "^23.1.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
