@@ -2751,7 +2751,7 @@ declare interface RequestError {
         message: string;
         meta?: Record<string, unknown>;
         error_code?: string;
-        batch_requestidx?: number;
+        batch_request_idx?: number;
     };
 }
 
