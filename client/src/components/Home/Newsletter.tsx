@@ -1,5 +1,5 @@
 import { MailIcon } from "lucide-react";
-import React from "react";
+
 
 const Newsletter = () => {
   return (
